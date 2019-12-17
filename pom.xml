@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <!-- springboot 依赖使用的groupId 为 org.springframework.boot。通常springboot项目的maven pom 文件会继承 spring-boot-starter-parent 工程，
+         并声明一个或多个“starter POMs”依赖。
+         springboot提供了很对“starters”，用来简化添加jars到classpath的操作。此处我们在POM的parent节点使用的是spring-boot-starter-parent，
+         它是一个dependency-managemnet节点，这样对于期望（blessed）的依赖就可以省略version 标记了。其他的“starters”只简单提供开发特定类型应用
+         所需要的依赖。-->
+
+    <groupId>com.dongqtai</groupId>
+    <artifactId>springbootdemo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springbootdemo</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+<!-- 由于我们目前开发的是一个web 应用所以，需要添加spring-boot-starter-web依赖
+     大多数的web应用都可以使用spring-boot-starter-web模块进行快速搭建和运行-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <!-- 为了创建可执行的jar，我们需要添加该 spring-boot-maven-pligin 依赖，该依赖可以将项目打包成一个可执行jar-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
