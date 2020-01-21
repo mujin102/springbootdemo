@@ -22,6 +22,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <slf4j.version>1.7.2</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
@@ -43,6 +45,22 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--日志-->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <!-- 为了创建可执行的jar，我们需要添加该 spring-boot-maven-pligin 依赖，该依赖可以将项目打包成一个可执行jar-->

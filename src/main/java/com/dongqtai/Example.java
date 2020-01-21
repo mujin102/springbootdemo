@@ -2,6 +2,7 @@ package com.dongqtai;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 @RestController
@@ -12,11 +13,14 @@ public class Example {
         return "Hello World!";
     }
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Example.class, args);
+        ApplicationContext applicationContext = SpringApplication.run(Example.class, args);
     }
 }
 
 /*
+    SpringApplication类提供了一种快捷方式，用于从main()方法启动Spring应用。
+    多数情况下，只需要将该任务委托给SpringApplication.run()静态方法。
+
     Example类上使用的第一个注解是 @RestController ，这被称为构造型（stereotype）注解。它为阅读代码的人提供暗示（这是一个支持REST的控制器），
     对于Spring，该类扮演了一个特殊角色。在本示例中，我们的类是一个web @Controller ，所以当web请求进来时，Spring会考虑是否使用它来处理。
     @RequestMapping 注解提供路由信息，它告诉Spring任何来自"/"路径的HTTP请求都应该被映射到 home 方法。
